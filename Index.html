@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Meu primeiro site</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Controle de Gastos - Voz</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Olá, mundo!</h1>
-    <p>Meu primeiro site no GitHub Pages está funcionando!</p>
-</body>
-</html>
+<div class="container">
+  <h1>Controle de Gastos (Voz)</h1>
+  <p class="lead">Clique em 🎤 e fale: "Gastei 70 reais com pizza" ou "Recebi 1200 salário". Depois ajuste e clique em <strong>Salvar</strong>.</p>
+
+  <div class="controls">
+    <button id="btnRecord" class="big">🎤 Gravar</button>
+    <div id="recordStatus" class="status">Pronto</div>
+  </div>
+
+  <form id="form" onsubmit="return false;">
+    <label>Descrição</label>
+    <input id="descricao" type="text" placeholder="Descrição do gasto (ex: pizza)" />
+
+    <label>Valor (R$)</label>
+    <input id="valor" type="number" step="0.01" placeholder="70.00" />
+
+    <label>Tipo</label>
+    <select id="tipo">
+      <option value="Gasto">Gasto</option>
+      <option value="Ganho">Ganho</option>
+    </select>
+
+    <div class="row">
+      <button id="btnSave" class="primary">💾 Salvar</button>
+      <button id="btnExport" class="secondary">⬇ Exportar CSV</button>
+    </div>
+  </form>
+
+  <h2>Registros</h2>
+  <div class="table-wrap">
+    <table id="table">
+      <thead><tr><th>Data</th><th>Descrição</th><th>Valor (R$)</th><th>Tipo</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="summary">
+    <div>Total Gastos: R$ <span id="totalGastos">0.00</span></div>
+    <div>Total Ganhos: R$ <span id="totalGanhos">0.00</span></div>
+    <div>Saldo: R$ <span id="saldo">0.00</span
