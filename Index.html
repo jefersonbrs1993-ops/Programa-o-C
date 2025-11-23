@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Controle de Gastos - Voz</title>
-<link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Gastos Mensais</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-  <h1>Controle de Gastos (Voz)</h1>
-  <p class="lead">Clique em 🎤 e fale: "Gastei 70 reais com pizza" ou "Recebi 1200 salário". Depois ajuste e clique em <strong>Salvar</strong>.</p>
 
-  <div class="controls">
-    <button id="btnRecord" class="big">🎤 Gravar</button>
-    <div id="recordStatus" class="status">Pronto</div>
-  </div>
+<header>
+    <h1>Controle de Gastos Mensais</h1>
+</header>
 
-  <form id="form" onsubmit="return false;">
-    <label>Descrição</label>
-    <input id="descricao" type="text" placeholder="Descrição do gasto (ex: pizza)" />
+<section class="input-section">
+    <h2>Registrar Gasto</h2>
+    <input type="text" id="descricao" placeholder="Descrição do gasto (ex: Pizza)">
+    <input type="number" id="valor" placeholder="Valor (ex: 70)">
+    <button onclick="adicionarGasto()">Adicionar</button>
+</section>
 
-    <label>Valor (R$)</label>
-    <input id="valor" type="number" step="0.01" placeholder="70.00" />
+<section class="resultado-section">
+    <h2>Resumo</h2>
 
-    <label>Tipo</label>
-    <select id="tipo">
-      <option value="Gasto">Gasto</option>
-      <option value="Ganho">Ganho</option>
-    </select>
+    <div class="cards">
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Ganhos">
+            <h3>Total Ganho</h3>
+            <p id="total-ganho">R$ 0,00</p>
+        </div>
 
-    <div class="row">
-      <button id="btnSave" class="primary">💾 Salvar</button>
-      <button id="btnExport" class="secondary">⬇ Exportar CSV</button>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Gastos">
+            <h3>Total Gasto</h3>
+            <p id="total-gasto">R$ 0,00</p>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Sobrou">
+            <h3>Saldo Restante</h3>
+            <p id="saldo-restante">R$ 0,00</p>
+        </div>
     </div>
-  </form>
+</section>
 
-  <h2>Registros</h2>
-  <div class="table-wrap">
-    <table id="table">
-      <thead><tr><th>Data</th><th>Descrição</th><th>Valor (R$)</th><th>Tipo</th><th></th></tr></thead>
-      <tbody></tbody>
-    </table>
-  </div>
+<section class="lista-section">
+    <h2>Lista de Gastos</h2>
+    <ul id="lista-gastos"></ul>
+</section>
 
-  <div class="summary">
-    <div>Total Gastos: R$ <span id="totalGastos">0.00</span></div>
-    <div>Total Ganhos: R$ <span id="totalGanhos">0.00</span></div>
-    <div>Saldo: R$ <span id="saldo">0.00</span
+<script src="script.js"></script>
+</body>
+</html>
